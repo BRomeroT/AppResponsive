@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Core.Lib.ViewsModels"
+             mc:Ignorable="d"
+             x:Class="AppResponsive.MainPage">
+
+    <StackLayout x:Name="MyStackLayout" x:DataType="vm:MainViewModel"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+        <StackLayout.BindingContext>
+            <vm:MainViewModel x:Name="ViewModel"/>
+        </StackLayout.BindingContext>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ColorStates">
+                
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="Invalid">
+                    <VisualState.Setters>
+                        <Setter Property="BackgroundColor" Value="Azure"/>
+                        <Setter TargetName="WelcomeLabel" Property="Label.TextColor" Value="Red"/>
+                        <Setter TargetName="ToggleValidButton" Property="Button.TextColor" Value="Red"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+            
+        </VisualStateManager.VisualStateGroups>
+
+        <Label x:Name="WelcomeLabel" Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Start" HorizontalOptions="Start" />
+
+        <Label x:Name="CurrentState" Text="{x:Binding CurrentState}"/>
+
+        <Button x:Name="ToggleValidButton" Text="Toggle State" Command="{x:Binding SwitchStateCommand}"></Button>
+
+        <Button Text="Go Adaptive" Command="{x:Binding GoAdaptiveCommand}"/>
+    </StackLayout>
+
+</ContentPage>

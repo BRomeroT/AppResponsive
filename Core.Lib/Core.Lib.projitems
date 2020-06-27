@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>bb8d2b42-faf1-4911-a9da-7e599ca4c98e</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Core.Lib</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\ISettingsStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OS\PagesKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewsModels\AdaptiveViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewsModels\MainViewModel.cs" />
+  </ItemGroup>
+</Project>

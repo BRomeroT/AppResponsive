@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppResponsive.Views.Views.AdaptivePage">
+
+
+    <!--<Grid x:Name="Main" RowDefinitions="Auto,*,Auto" ColumnDefinitions="Auto,*">-->
+    <StackLayout x:Name="Main" >
+            <StackLayout x:Name="Menu" BackgroundColor="GhostWhite" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Label Text="Option One" Padding="10"/>
+                <Label Text="Option Two" Padding="10"/>
+                <Label Text="Option Three" Padding="10"/>
+            </StackLayout>
+
+            <Grid x:Name="Content" BackgroundColor="AliceBlue" Grid.Row="1" Grid.ColumnSpan="2" >
+                <Label Text="Content" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Grid>
+
+            <StackLayout x:Name="Commands" Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" >
+                <Button Text="Save"/>
+                <Button Text="Cancel"/>
+                <Button Text="Validate"/>
+            </StackLayout>
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="Rotation">
+                    <VisualState Name="Vertical"/>
+                    <VisualState Name="Horizontal">
+                        <VisualState.Setters>
+                        <Setter TargetName="Main" Property="Orientation" Value="Horizontal"/>
+                        <Setter TargetName="Menu" Property="Orientation" Value="Vertical"/>
+                        <Setter TargetName="Content" Property="BackgroundColor" Value="Red"/>
+                        <Setter TargetName="Content" Property="WidthRequest" Value="500"/>
+                        <Setter TargetName="Commands" Property="Orientation" Value="Vertical"/>
+                    </VisualState.Setters>
+                        <!--<VisualState.StateTriggers>
+                        <OrientationStateTrigger Orientation="Landscape"/>
+                    </VisualState.StateTriggers>-->
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </StackLayout>
+    <!--</Grid>-->
+
+</ContentPage>
